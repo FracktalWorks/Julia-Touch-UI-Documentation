@@ -41,8 +41,6 @@ Git: ```sudo apt-get install git```
 
 ### Install 3.5inch touch screen driver
 
-clone repo: ```git  clone https://github.com/Smrazatech/Raspbian-LCD35```
-
 run: 
 ```git clone https://github.com/waveshare/LCD-show.git
 cd LCD-show
@@ -80,7 +78,7 @@ hdmi_drive=2
 ```sudo mv /usr/share/X11/xorg.conf.d/99-fbturbo.conf ```
 
 
-
+To test out working, use the following to start a PyQt5 program with ```sudo startx```
 ```#!/bin/sh
 
 # /etc/X11/xinit/xinitrc
@@ -93,6 +91,30 @@ sudo python Main.py
 . /etc/X11/Xsession
 ```
 
+### Installing Octoprint
+
+Derived from  [this](https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337) link for detailed instruction installing Octoprint
+Fracktals Version of Octoprint: https://github.com/FracktalWorks/OctoPrint/
+
+####Basic Installation
+For the basic package you'll need Python 3.6 or newer (should be installed by default) and pip.
+Make sure you are using the correct version - it is probably be installed as python3, not python. To check:
+
+```python3 --version```
+Installing OctoPrint should be done within a virtual environment, rather than an OS wide install, to help prevent dependency conflicts. To setup Python, dependencies and the virtual environment, run:
+```
+cd ~
+sudo apt update
+sudo apt install python3-pip python3-dev python3-setuptools python3-venv git libyaml-dev build-essential
+mkdir OctoPrint && cd OctoPrint
+python3 -m venv venv
+source venv/bin/activate
+```
 
 
+#### Install from Git Repo:
+
+```pip install wheel```
+
+```pip install https://github.com/FracktalWorks/OctoPrint/archive/refs/tags/1.7.31.zip```
 
