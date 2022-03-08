@@ -1,4 +1,4 @@
-# Julia2022ExtendedTouchUI
+# Julia Touch UI Documentation
 Touch UI Octoprint >1.5 Plugin for Julia 2022 Extended based on Python3 and PyQt5 
 
 #Development Documentation:
