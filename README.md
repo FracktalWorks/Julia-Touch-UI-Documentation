@@ -118,24 +118,27 @@ source venv/bin/activate
 
 ```pip install https://github.com/FracktalWorks/OctoPrint/archive/refs/tags/1.7.31.zip```
 
-Changing the boot screen logo
+### Changing the boot screen logo
+Refeance : [link](https://raspberrypi.stackexchange.com/questions/100371/raspbian-buster-lite-splash-screen-instead-of-boot-messages-on-pi-3-model-b-a02)
+
 
 The pi boots with a rainbow colour and many messages will be displayed during boot up.
 to disable the boot message go to 
-sudo nano /boot/cmdline.txt
+```sudo nano /boot/cmdline.txt```
 
 in that file 
-Add loglevel=3 to disable non-critical kernel log messages.
-Add logo.nologo to the end of the line to remove the Raspberry PI logos from displaying
+Add ```loglevel=3``` to disable non-critical kernel log messages.
+Add ```logo.nologo``` to the end of the line to remove the Raspberry PI logos from displaying
 
 now messages will not be shown 
 
-To add our logo 
+### To add our logo 
 install fbi
-apt-get install fbi
+```apt-get install fbi```
 
-Create the file /etc/systemd/system/splashscreen.service with the following content:
+Create the file ```sudo nano /etc/systemd/system/splashscreen.service``` with the following content:
 
+```
 [Unit] 
 Description=Splash screen 
 DefaultDependencies=no 
@@ -147,12 +150,10 @@ StandardInput=tty
 StandardOutput=tty 
 [Install] 
 WantedBy=sysinit.target
-
+```
 Replace /opt/splash.png with the path to the splash screen image as appropriate.
 
 Enable the service to be run at boot by running as root:
 
-systemctl enable splashscreen
+```systemctl enable splashscreen```
 
-in case you didnt get follow this link
-https://raspberrypi.stackexchange.com/questions/100371/raspbian-buster-lite-splash-screen-instead-of-boot-messages-on-pi-3-model-b-a02
