@@ -118,6 +118,42 @@ source venv/bin/activate
 
 ```pip install https://github.com/FracktalWorks/OctoPrint/archive/refs/tags/1.7.31.zip```
 
+
+### Autologin
+-This is primarily for the TouchUI App
+https://community.octoprint.org/t/how-to-set-up-octoprint-to-autologin-a-single-user-when-connecting-from-the-internal-network/26235
+
+See "The Hard Way"
+```config.yaml``` config:
+```accessControl:
+  salt: 1jjovY7wxfFi7NrEuFv6eTAXgmyvECPc
+  autologinLocal: true
+  autologinAs: admin
+  localNetworks:
+  - 127.0.0.0/8
+  - 192.168.0.0/24
+  - 192.168.1.0/24
+```
+
+#### Automatic Octoprint Startup
+
+Download the init script files from OctoPrint's repository, move them to their respective folders and make the init script executable:
+
+```wget https://github.com/OctoPrint/OctoPrint/raw/master/scripts/octoprint.service && sudo mv octoprint.service /etc/systemd/system/octoprint.service```
+
+Adjust the paths to your octoprint binary in `````/etc/systemd/system/octoprint.service`````. If you set it up in a virtualenv as described above make sure your `````/etc/systemd/system/octoprint.service````` looks like this:
+
+```ExecStart=/home/pi/OctoPrint/venv/bin/octoprint```
+
+Then add the script to autostart using
+ 
+```sudo systemctl enable octoprint.service```
+
+This will also allow you to start/stop/restart the OctoPrint daemon via
+
+```sudo service octoprint {start|stop|restart}```
+
+
 ### Changing the boot screen logo
 Refeance : [link](https://raspberrypi.stackexchange.com/questions/100371/raspbian-buster-lite-splash-screen-instead-of-boot-messages-on-pi-3-model-b-a02)
 
@@ -151,9 +187,13 @@ StandardOutput=tty
 [Install] 
 WantedBy=sysinit.target
 ```
-Replace /opt/splash.png with the path to the splash screen image as appropriate.
+Replace `````/opt/splash.png````` with the path to the splash screen image as appropriate.
 
 Enable the service to be run at boot by running as root:
 
 ```systemctl enable splashscreen```
+
+#### Webcam
+
+Reference: https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337
 
