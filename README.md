@@ -197,6 +197,20 @@ Enable the service to be run at boot by running as root:
 
 Reference: https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337
 
+#### Haproxy
+
+The OctoPrint works on the ```:5000``` protocol which means ```http://192:168.0.24:5000``` will open the octoprint UI page. Now to access the OctoPrint on ```8080``` we have to install haproxy.
+
+We will install Haproxy 1.8
+
+```sudo apt install haproxy=1.8.\*```
+After installing just verify the version of haproxy
+
+```haproxy -v```
+Now we have to configure the haproxy to open in ```:8080``` protocol.
+Open configuration file ```sudo nano /etc/haproxy/haproxy.cfg```
+
+
 #### Now The pi boots up (properly)
 The pi boot's up but it goes to the lock screen (That feature has to be disabled)
 The change's had been made in the summit in the given link (https://github.com/FracktalWorks/JuliaTouchUI/commit/69d13ea66483670c42d59ddecc72bd41d18a289f) follow this and startx again the pi will boot to home screen this time.
