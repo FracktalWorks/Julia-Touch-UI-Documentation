@@ -247,6 +247,35 @@ backend webcam
         server webcam1  127.0.0.1:8080
 ```
 If this dosent work then do copy from this link (https://gist.github.com/HarlemSquirrel/458dd9f8dfda5330d6cc622738f3da5e).
+Now the Octoprint will work directly from ip address ```http://192.168.0.24``` just enter the Pi's ip address on the url section of webpage it will open Octoprint.
+
+#### Touch UI
+Touch UI can be installed in octoprint only. Open Settings and in that scroll to Plugin manager, after that click on Get More and in that page scroll down till you find ```...from URL```
+Paste the (https://github.com/FracktalWorks/JuliaTouchUI/archive/refs/tags/0.0.1.zip)
+Refference (https://github.com/FracktalWorks/JuliaTouchUI)
+
+#### Configure Startx (Xwindow manager which helps to show GUI on Raspbian os lite)
+```sudo nano /etc/rc.local```
+Add “startx” just before exit 0
+```sudo nano /etc/X11/xinit/xinitrc```
+Here you have to add the location of touch ui where it is saved and file name
+Example 
+```
+
+#!/bin/sh
+
+# /etc/X11/xinit/xinitrc
+#
+# global xinitrc file, used by all X sessions started by xinit (startx)
+cd /home/pi/OctoPrint/venv/lib/python3.7/site-packages/octoprint_JuliaTouchUI/
+sudo chmod +x Main.py
+sudo python3 Main.py
+# invoke global X session script
+. /etc/X11/Xsession
+
+
+```
+Now when you do startx the GUI will boot up
 
 #### Now The pi boots up (properly)
 The pi boot's up but it goes to the lock screen (That feature has to be disabled)
