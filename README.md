@@ -208,8 +208,45 @@ After installing just verify the version of haproxy
 
 ```haproxy -v```
 Now we have to configure the haproxy to open in ```:8080``` protocol.
-Open configuration file ```sudo nano /etc/haproxy/haproxy.cfg```
+Open configuration file type ```sudo nano /etc/haproxy/haproxy.cfg``` in terminal.
+There will be some code in it replace it with our 
+```
+global
+        maxconn 4096
+        user haproxy
+        group haproxy
+        daemon
+        log 127.0.0.1 local0 debug
 
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        retries 3
+        option redispatch
+        option http-server-close
+        option forwardfor
+        maxconn 2000
+        timeout connect 5s
+        timeout client  15min
+        timeout server  15min
+
+frontend public
+        bind :::80 v4v6
+        use_backend webcam if { path_beg /webcam/ }
+        default_backend octoprint
+
+backend octoprint
+        reqrep ^([^\ :]*)\ /(.*)     \1\ /\2
+        option forwardfor
+        server octoprint1 127.0.0.1:5000
+
+backend webcam
+        reqrep ^([^\ :]*)\ /webcam/(.*)     \1\ /\2
+        server webcam1  127.0.0.1:8080
+```
+If this dosent work then do copy from this link (https://gist.github.com/HarlemSquirrel/458dd9f8dfda5330d6cc622738f3da5e).
 
 #### Now The pi boots up (properly)
 The pi boot's up but it goes to the lock screen (That feature has to be disabled)
