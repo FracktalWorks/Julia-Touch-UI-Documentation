@@ -305,3 +305,14 @@ in ```sudo raspi-config```
 - Enable screen blanking
 
 sudo apt install --no-install-recommends x11-common x11-utils x11-xkb-utils x11-xserver-utils xfconf xfonts-base xfonts-100dpi xfonts-encodings xfonts-utils xinit xinput xserver-common xserver-xorg xserver-xorg-core xserver-xorg-input-all xserver-xorg-input-libinput xserver-xorg-input-evdev xserver-xorg-legacy xserver-xorg-video-fbdev xserver-xorg-video-fbturbo xterm
+
+
+#### Install USB Automount
+Referance: https://github.com/rbrito/usbmount/issues/25
+
+https://github.com/nicokaiser/usbmount/releases/download/0.0.24/usbmount_0.0.24_all.deb
+You can install it via dpkg -i usbmount_0.0.24_all.deb after downloading. This updates the Debian/Raspbian version (0.0.22) to the current GitHub master (0.0.24).
+
+#### Minimising image size
+
+https://www.youtube.com/watch?v=77vOeofG0Kg
