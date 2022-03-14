@@ -339,6 +339,8 @@ https://github.com/rlogiacco/UploadAnything/blob/master/octoprint_uploadanything
 
 https://howchoo.com/pi/raspberry-pi-display-rotation
 
+see [link](https://github.com/FracktalWorks/JuliaAdvanced2022TouchUI/commit/399ea48d66bdc058930aa2c69b8ae00a3be3b2a7) for more information
+
 ### Touch Screen Calibration
 
 Referance: [link](https://robu.in/how-to-calibrate-raspberry-pi-touch-screen/)
