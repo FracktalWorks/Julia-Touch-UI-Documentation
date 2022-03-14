@@ -325,3 +325,7 @@ You can install it via dpkg -i usbmount_0.0.24_all.deb after downloading. This u
 to reduce size of images read from win32diskimager
 
 https://www.youtube.com/watch?v=77vOeofG0Kg
+
+### Make sure Firmware updater is configured
+
+https://github.com/OctoPrint/OctoPrint-FirmwareUpdater
