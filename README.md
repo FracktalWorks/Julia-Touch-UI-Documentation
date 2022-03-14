@@ -80,7 +80,8 @@ hdmi_drive=2
 
 ```sudo apt-get install x11-xserver-utils```
 
-```sudo mv /usr/share/X11/xorg.conf.d/99-fbturbo.conf ~```
+
+```sudo mv /usr/share/X11/xorg.conf.d/99-fbturbo.conf ~```  see [link](https://learn.adafruit.com/adafruit-pitft-3-dot-5-touch-screen-for-raspberry-pi/faq) for more information on this step
 
 
 To test out working, use the following to start a PyQt5 program with ```sudo startx```
@@ -329,3 +330,30 @@ https://www.youtube.com/watch?v=77vOeofG0Kg
 ### Make sure Firmware updater is configured
 
 https://github.com/OctoPrint/OctoPrint-FirmwareUpdater
+
+### Upload anuthing added to allow PNG Upload to Octoprint
+
+https://github.com/rlogiacco/UploadAnything/blob/master/octoprint_uploadanything/__init__.py
+
+### Rotate Display:
+
+https://howchoo.com/pi/raspberry-pi-display-rotation
+
+### Touch Screen Calibration
+
+Referance: [link](https://robu.in/how-to-calibrate-raspberry-pi-touch-screen/)
+installed xinput_calibrator and other tools using:
+```apt install libts-bin```
+
+created ```sudo nano /home/pi/setenv.sh``` with the following data:
+change framebuffer ```fb0``` to what you are using
+
+```
+#! /bin/bash
+export TSLIB_FBDEVICE=/dev/fb0
+export TSLIB_TSDEVICE=/dev/input/event0
+ts_calibrate
+#exit
+```
+make it executable
+```sudo chmod +x /home/pi/setenv.sh```
