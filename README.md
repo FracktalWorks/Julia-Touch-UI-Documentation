@@ -158,6 +158,13 @@ This will also allow you to start/stop/restart the OctoPrint daemon via
 
 ```sudo service octoprint {start|stop|restart}```
 
+###Removing boot messages
+```sudo nano /boot/cmdline.txt```
+change ```console=tty1``` to ```console=tty3``` 
+Add ```loglevel=3``` to disable non-critical kernel log messages.
+Add ```logo.nologo``` to the end of the line to remove the Raspberry PI logos from displaying
+Press CTRL+X to exit and Y to save your changes.
+
 
 ### Changing the boot screen logo
 Refeance : [link](https://www.hackster.io/kamaluddinkhan/changing-the-splash-screen-on-your-raspberry-pi-7aee31)
