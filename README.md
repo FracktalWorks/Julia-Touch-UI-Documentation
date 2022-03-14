@@ -359,3 +359,51 @@ ts_calibrate
 ```
 make it executable
 ```sudo chmod +x /home/pi/setenv.sh```
+
+
+# Python3_PyQt5_dev
+
+# Development Setup:
+
+## Initial setup to run on Windows:
+https://www.youtube.com/watch?v=Vde5SH8e1OQ
+
+Text based tutuorial : https://www.techwithtim.net/tutorials/pyqt5-tutorial/basic-gui-application/
+Setting up with Pycharm: https://pythonpyqt.com/how-to-install-pyqt5-in-pycharm/
+
+
+## Differences between PyQt5 and PyQt4:
+https://docs.huihoo.com/pyqt/PyQt5/pyqt4_differences.html#:~:text=PyQt5%20exposes%20only%20the%20signal,QObject%20(i.e.%20in%20mixins).
+
+## Changes to the code being made:
+
+### Changing clicable line edit:
+https://stackoverflow.com/questions/35047349/pyqt-5-how-to-make-qlineedit-clickable
+
+### Changing Signal and Slot mechanism:
+https://stackoverflow.com/questions/53948455/pyqt5-how-to-connect-emit
+https://doc.bccnsoft.com/docs/PyQt5/signals_slots.html
+
+Proper way of using signals : https://www.programmersought.com/article/38055016039/
+https://zetcode.com/gui/pyqt5/eventssignals/#:~:text=PyQt5%20emitting%20signals&text=We%20create%20a%20new%20signal,()%20slot%20of%20the%20QMainWindow%20.&text=A%20signal%20is%20created%20with,of%20the%20external%20Communicate%20class.
+
+### Threading, Signals & Slots
+https://wiki.python.org/moin/PyQt5/Threading%2C_Signals_and_Slots#:~:text=We%20connect%20the%20standard%20finished,a%20new%20star%20is%20drawn.
+
+It is possible to pass any Python object as a signal argument by specifying PyQt_PyObject as the type of the argument in the signature. For example:
+
+`finished = pyqtSignal('PyQt_PyObject')`
+This would normally be used for passing objects where the actual Python type isn’t known. It can also be used to pass an integer, for example, so that the normal conversions from a Python object to a C++ integer and back again are not required.
+
+The reference count of the object being passed is maintained automatically. There is no need for the emitter of a signal to keep a reference to the object after the call to finished.emit(), even if a connection is queued. 
+
+
+### Websocket related changes
+
+  Need to authenticate to keep recieving websocket data
+
+  Client Code: https://artlist.io/song/57212/anthem
+  Documentation: https://docs.octoprint.org/en/master/api/push.html
+
+
+------------------------------------------------------------------------------------------------------
