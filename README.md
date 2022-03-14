@@ -408,7 +408,7 @@ The reference count of the object being passed is maintained automatically. Ther
 
 ------------------------------------------------------------------------------------------------------
 
-# Julia Pro Dual ABL  Touch UI
+# TouchUI Architecture
 ==============================
 
 ## Functional Block Diagram
