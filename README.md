@@ -211,6 +211,10 @@ Enable the service to be run at boot by running as root:
 
 Reference: https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337
 
+do a ```chmod +x /home/pi/scripts/webcamDaemon``` of ths cript from the link above
+
+also enable the camera interface on raspi-config
+
 #### Haproxy
 
 The OctoPrint works on the ```:5000``` protocol which means ```http://192:168.0.24:5000``` will open the octoprint UI page. Now to access the OctoPrint on ```8080``` we have to install haproxy.
