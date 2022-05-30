@@ -118,8 +118,10 @@ Update pip version inside octoprint:
 ```
 cd OctoPrint
 source venv/bin/activate
-python3 -m pip install --upgrade pip
+pip install --upgrade pip
 ```
+### Update API key & Config.yaml
+
 
 ### Autologin
 -This is primarily for the TouchUI App
@@ -276,6 +278,12 @@ Paste the (https://github.com/FracktalWorks/JuliaTouchUI/archive/refs/tags/0.0.1
 Refference (https://github.com/FracktalWorks/JuliaTouchUI)
 
 install dependencies under ```sudo pip3```
+
+install qrcode:
+```sudo pip3 install qrcode```
+
+install websocket:
+```sudo pip3 install websocket-client```
 
 #### Configure Startx (Xwindow manager which helps to show GUI on Raspbian os lite)
 
