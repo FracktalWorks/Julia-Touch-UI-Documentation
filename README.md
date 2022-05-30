@@ -157,6 +157,9 @@ Press CTRL+X to exit and Y to save your changes.
 
 
 ### Changing the boot screen logo
+
+
+
 Refeance : [link](https://www.hackster.io/kamaluddinkhan/changing-the-splash-screen-on-your-raspberry-pi-7aee31)
 [link](https://raspberrypi.stackexchange.com/questions/100371/raspbian-buster-lite-splash-screen-instead-of-boot-messages-on-pi-3-model-b-a02)
 
@@ -171,8 +174,11 @@ Add ```logo.nologo``` to the end of the line to remove the Raspberry PI logos fr
 now messages will not be shown 
 
 ### To add our logo 
+
+download logo from this repository and transfer to root folder of pi
+
 install fbi
-```apt-get install fbi```
+```sudo apt-get install fbi```
 
 Create the file ```sudo nano /etc/systemd/system/splashscreen.service``` with the following content:
 
