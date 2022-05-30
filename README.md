@@ -135,7 +135,7 @@ Download the init script files from OctoPrint's repository, move them to their r
 
 ```wget https://github.com/OctoPrint/OctoPrint/raw/master/scripts/octoprint.service && sudo mv octoprint.service /etc/systemd/system/octoprint.service```
 
-Adjust the paths to your octoprint binary in `````/etc/systemd/system/octoprint.service`````. If you set it up in a virtualenv as described above make sure your `````/etc/systemd/system/octoprint.service````` looks like this:
+Adjust the paths to your octoprint binary  ```sudo nano /etc/systemd/system/octoprint.service```. If you set it up in a virtualenv as described above make sure your ```/etc/systemd/system/octoprint.service``` looks like this:
 
 ```ExecStart=/home/pi/OctoPrint/venv/bin/octoprint```
 
