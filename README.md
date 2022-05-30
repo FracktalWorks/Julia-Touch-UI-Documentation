@@ -110,6 +110,8 @@ source venv/bin/activate
 
 ```pip install https://github.com/FracktalWorks/OctoPrint/archive/refs/tags/1.7.31.zip```
 
+to exit venv (to install other things under pi user):
+```deactivate```
 
 ### Autologin
 -This is primarily for the TouchUI App
