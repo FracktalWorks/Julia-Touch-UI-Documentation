@@ -85,14 +85,16 @@ hdmi_drive=2
 
 
 To test out working, use the following to start a PyQt5 program with ```sudo startx```
+Load ```SampleProgram``` from this repository into root ```home/pi``` by using ```sudo nano /etc/X11/xinit/xinitrc```
+
 ```#!/bin/sh
 
 # /etc/X11/xinit/xinitrc
 #
 # global xinitrc file, used by all X sessions started by xinit (startx)
-cd /home/pi/Julia2018Octoprint/venv/lib/python2.7/site-packages/octoprint_Julia2018ProDualABLTouchUI
-sudo chmod +x Main.py
-sudo python3 Main.py
+cd /home/pi/SampleProgram
+sudo chmod +x main.py
+sudo python3 main.py
 # invoke global X session script
 . /etc/X11/Xsession
 ```
@@ -211,7 +213,7 @@ Enable the service to be run at boot by running as root:
 
 Reference: https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337
 
-do a ```chmod +x /home/pi/scripts/webcamDaemon``` of ths cript from the link above
+do a ```sudo chmod +x /home/pi/scripts/webcamDaemon``` of ths cript from the link above
 
 also enable the camera interface on raspi-config
 
@@ -363,6 +365,11 @@ ts_calibrate
 ```
 make it executable
 ```sudo chmod +x /home/pi/setenv.sh```
+
+
+### Dissable  bluetooth to make Pi faster
+
+https://di-marco.net/blog/it/2020-04-18-tips-disabling_bluetooth_on_raspberry_pi/
 
 
 # Python3_PyQt5_dev
