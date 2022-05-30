@@ -113,6 +113,14 @@ source venv/bin/activate
 to exit venv (to install other things under pi user):
 ```deactivate```
 
+Update pip version inside octoprint:
+
+```
+cd OctoPrint
+source venv/bin/activate
+python3 -m pip install --upgrade pip
+```
+
 ### Autologin
 -This is primarily for the TouchUI App
 https://community.octoprint.org/t/how-to-set-up-octoprint-to-autologin-a-single-user-when-connecting-from-the-internal-network/26235
@@ -189,14 +197,14 @@ DefaultDependencies=no
 After=local-fs.target 
 
 [Service] 
-ExecStart=/usr/bin/fbi -d /dev/fb0 --noverbose -a /home/pi/splash.png >/dev/null 2>&1
+ExecStart=/usr/bin/fbi -d /dev/fb1 --noverbose -a /home/pi/splash.png >/dev/null 2>&1
 StandardInput=tty 
 StandardOutput=tty 
 [Install] 
 WantedBy=sysinit.target
 
 ```
-Replace `````/opt/splash.png````` with the path to the splash screen image as appropriate.
+Replace `````/pi/splash.png````` with the path to the splash screen image as appropriate. You might need to change fb1 to fb0 depending on the framebuffer the display is installed on
 
 Enable the service to be run at boot by running as root:
 
@@ -206,7 +214,7 @@ Enable the service to be run at boot by running as root:
 
 Reference: https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337
 
-do a ```sudo chmod +x /home/pi/scripts/webcamDaemon``` of ths cript from the link above
+do a ```sudo chmod +x /home/pi/scripts/webcamDaemon``` of ths script from the link above
 
 also enable the camera interface on raspi-config
 
@@ -336,6 +344,8 @@ hdmi_group=2
 hdmi_mode=87
 hdmi_cvt 480 320 12 6 0 0 0
 hdmi_drive=2
+start_x=1
+gpu_mem=128
 ```
 
 
