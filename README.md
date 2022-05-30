@@ -369,7 +369,7 @@ https://github.com/OctoPrint/OctoPrint-FirmwareUpdater
 
 ### Upload anuthing added to allow PNG Upload to Octoprint
 
-https://github.com/rlogiacco/UploadAnything/blob/master/octoprint_uploadanything/__init__.py
+https://github.com/rlogiacco/UploadAnything
 
 ### Rotate Display:
 
@@ -381,7 +381,7 @@ see [link](https://github.com/FracktalWorks/JuliaAdvanced2022TouchUI/commit/399e
 
 Referance: [link](https://robu.in/how-to-calibrate-raspberry-pi-touch-screen/)
 installed xinput_calibrator and other tools using:
-```apt install libts-bin```
+```sudo apt install libts-bin```
 
 created ```sudo nano /home/pi/setenv.sh``` with the following data:
 change framebuffer ```fb0``` to what you are using
