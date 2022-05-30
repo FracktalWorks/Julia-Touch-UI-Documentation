@@ -333,8 +333,8 @@ in ```sudo raspi-config```
 #### Install USB Automount
 Referance: https://github.com/rbrito/usbmount/issues/25
 
-https://github.com/nicokaiser/usbmount/releases/download/0.0.24/usbmount_0.0.24_all.deb
-You can install it via dpkg -i usbmount_0.0.24_all.deb after downloading. This updates the Debian/Raspbian version (0.0.22) to the current GitHub master (0.0.24).
+```wget https://github.com/nicokaiser/usbmount/releases/download/0.0.24/usbmount_0.0.24_all.deb```
+You can install it via ```sudo dpkg -i usbmount_0.0.24_all.deb``` after downloading. This updates the Debian/Raspbian version (0.0.22) to the current GitHub master (0.0.24).
 
 ### To make LCD Faster (Issue with ili based screens)
 
