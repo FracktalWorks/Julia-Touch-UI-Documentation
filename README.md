@@ -147,7 +147,8 @@ This will also allow you to start/stop/restart the OctoPrint daemon via
 
 ```sudo service octoprint {start|stop|restart}```
 
-###Removing boot messages
+### Removing boot messages
+
 ```sudo nano /boot/cmdline.txt```
 change ```console=tty1``` to ```console=tty3``` 
 Add ```loglevel=3``` to disable non-critical kernel log messages.
