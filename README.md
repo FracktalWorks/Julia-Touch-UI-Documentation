@@ -53,23 +53,7 @@ chmod +x LCD35-show
 ./LCD35-show
 ```
 
-### To make LCD Faster (Issue with ili based screens)
 
-Changed ```sudo nano /boot/config.txt``` bottom to:
-
-```
-# Enable audio (loads snd_bcm2835)
-dtparam=audio=on
-dtoverlay=waveshare35a,fps=12,speed=16000000
-#dtoverlay=ads7846,cs=1,penirq=17,penirq_pull=2,speed=1000000,keep_vref_on=1,swapxy=1,pmax=255,xohm$
-hdmi_force_hotplug=1
-#max_usb_current=1
-hdmi_group=2
-#hdmi_mode=1
-hdmi_mode=87
-hdmi_cvt 480 320 12 6 0 0 0
-hdmi_drive=2
-```
 ### Install Xwindows
 
 ```sudo apt-get install xserver-xorg-video-fbdev```
@@ -326,6 +310,25 @@ Referance: https://github.com/rbrito/usbmount/issues/25
 
 https://github.com/nicokaiser/usbmount/releases/download/0.0.24/usbmount_0.0.24_all.deb
 You can install it via dpkg -i usbmount_0.0.24_all.deb after downloading. This updates the Debian/Raspbian version (0.0.22) to the current GitHub master (0.0.24).
+
+### To make LCD Faster (Issue with ili based screens)
+
+Changed ```sudo nano /boot/config.txt``` bottom to:
+
+```
+# Enable audio (loads snd_bcm2835)
+dtparam=audio=on
+dtoverlay=waveshare35a,fps=12,speed=16000000
+#dtoverlay=ads7846,cs=1,penirq=17,penirq_pull=2,speed=1000000,keep_vref_on=1,swapxy=1,pmax=255,xohm$
+hdmi_force_hotplug=1
+#max_usb_current=1
+hdmi_group=2
+#hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt 480 320 12 6 0 0 0
+hdmi_drive=2
+```
+
 
 ## Minimising image size
 
