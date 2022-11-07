@@ -1,7 +1,7 @@
 # Julia Touch UI Documentation
 Touch UI Octoprint >1.5 Plugin for Julia 2022 Extended based on Python3 and PyQt5 
 
-#Development Documentation:
+# Development Documentation:
 ## Setting up Raspberry Pi:
 ### Writing Image: 
 [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/)
