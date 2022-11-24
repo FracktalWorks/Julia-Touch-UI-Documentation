@@ -471,3 +471,41 @@ The reference count of the object being passed is maintained automatically. Ther
 
 # To compile .ui to .py:
  pyuic5 .\mainGUI.ui -o .\mainGUI.py
+ 
+# To change the TouchUI of the Raspberry Pi display
+ The following are the steps to enable the `TouchUI` in the `Raspberry Pi displays`:
+ * Connect the `Raspberry Pi 4` and the `Display` and connecting it to the power supply using its respective USB cables.
+ * Download the `Bitvise SSH Client` software, and open it. After opening, log into the IP address of the Raspberry Pi and the display that is being used, using the local server.  
+ * After logging in, access the Remote files of the Raspberry Pi, and then follow the path ```/etc/X11/xinit```.
+ * In the command prompt terminal of the Raspberry Pi, type in ```sudo nano /etc/X11/xinit/xinitrc```.
+ * The list of files that are present will be displayed in the process. Replace the file named with the prefix `Octoprint_...` with name of the file that is to be replaced onto. 
+ * After the above changes, in the command prompt terminal, type in ```sudo reboot``` to reflect the changes in the Raspberry Pi display.
+
+# How to Shrink an image of Raspberry Pi using PiShrink
+The following are the steps to shrink any image of `large size` into a `very small size` using the `PiShrink` feature:
+* Download the `Ubuntu` OS from the browser or the `App Store` such as the `Microsoft Store`. 
+* Open the `Command Prompt`. Type in: ```wsl --install```.
+* In the next step, type ```ubuntu```. This is install all the files and installation packages in the local linux system server.
+* In the next step, type in ```cd /```.
+* Next step, type in ```ls```. This will get the list of all the files present in the Ubuntu OS directory.
+* After the above steps, type in ```explorer.exe```. This will access the `Windows files` using the `Ubuntu OS`.
+* Now, in order to install the PiShrink feature into the Ubuntu OS, enter the following commands in the `command prompt`
+```
+wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+chmod +x pishrink.sh
+sudo mv pishrink.sh /usr/local/bin
+```
+* After the above steps, type in ```cd /```.
+* Then type ```ls```.
+* Then type in ```cd mnt```.
+* We have successfully installed the PiShrink feature into the OS. Now in the following steps below, we need to determine the location of the image file that is to be shrinked.
+* Type in ```/mnt# cd (location path)```. Remember that, while mentioning the path of the file, the name of the `drive` should be in small letter. Eg., `c`. Remove the `colons(:)` from the path and use `/` instead of `\`.
+* After the above step, type ```mnt/c/(location path) #ls```
+* Then type in the following commands below:
+```
+wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+chmod +x pishrink.sh
+sudo mv pishrink.sh /usr/local/bin
+```
+* After the above process, type in ```sudo pishrink.sh img```.
+* Finally, the large image file is replaced with the shrinked image, roughly the size of `3GB` from any large size as big as `60GB`.
