@@ -478,6 +478,10 @@ The reference count of the object being passed is maintained automatically. Ther
  * Download the `Bitvise SSH Client` software, and open it. After opening, log into the IP address of the Raspberry Pi and the display that is being used, using the local server.  
  * After logging in, access the Remote files of the Raspberry Pi, and then follow the path ```/etc/X11/xinit```.
  * In the command prompt terminal of the Raspberry Pi, type in ```sudo nano /etc/X11/xinit/xinitrc```.
+ * Now open the Octoprint server in the browser, then go to plugin manager delete the previous **TouchUI plugin** 
+ * NOw open the Github and search for the touchUI you wanted to get installed and then go to ```releases >  sourcecode.ZIP file ``` and copy the path of zip file
+ * Now open the plugin manger and click ** getmore ** paste the url in the paste url row . and it installs the TouchUI  .
+ * NOw it will restart the system and the TouchUI gets installed
  * The list of files that are present will be displayed in the process. Replace the file named with the prefix `Octoprint_...` with name of the file that is to be replaced onto. 
  * After the above changes, in the command prompt terminal, type in ```sudo reboot``` to reflect the changes in the Raspberry Pi display.
 
