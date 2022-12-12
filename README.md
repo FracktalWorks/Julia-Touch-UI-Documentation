@@ -485,6 +485,14 @@ The reference count of the object being passed is maintained automatically. Ther
  * The list of files that are present will be displayed in the process. Replace the file named with the prefix `Octoprint_...` with name of the file that is to be replaced onto. 
  * After the above changes, in the command prompt terminal, type in ```sudo reboot``` to reflect the changes in the Raspberry Pi display.
 
+# How to make image file from the boot files present 
+The following are the steps to make a image file from the files in a folder/sd card/drive etc.,
+* Install ```win32diskimager``` and open when it's done.
+* Then in the window locate the drive/folder/sd card you want to make a image file from
+* Then in the location path dialog box put the location of the desired location where the image file you to get written
+* Then press the write button on the down of the window ,then it will start writing the image 
+* After it gets written it will be saved at the desired location,located at the beginning.
+
 # How to Shrink an image of Raspberry Pi using PiShrink
 The following are the steps to shrink any image of `large size` into a `very small size` using the `PiShrink` feature:
 * Download the `Ubuntu` OS from the browser or the `App Store` such as the `Microsoft Store`. 
