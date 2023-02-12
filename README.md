@@ -1,7 +1,7 @@
 # Julia Touch UI Documentation
 Touch UI Octoprint >1.5 Plugin for Julia 2022 Extended based on Python3 and PyQt5 
 
-#Development Documentation:
+# Development Documentation:
 ## Setting up Raspberry Pi:
 ### Writing Image: 
 [Raspbian Buster Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/)
@@ -550,3 +550,54 @@ https://www.thegeekdiary.com/how-to-set-x11-forwarding-export-remote-display-for
 https://danct12.github.io/Fix-X11-Forwarding-sudo/
 https://forums.raspberrypi.com/viewtopic.php?t=248325
 https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html
+
+ 
+# To change the TouchUI of the Raspberry Pi display
+ The following are the steps to enable the `TouchUI` in the `Raspberry Pi displays`:
+ * Connect the `Raspberry Pi 4` and the `Display` and connecting it to the power supply using its respective USB cables.
+ * Download the `Bitvise SSH Client` software, and open it. After opening, log into the IP address of the Raspberry Pi and the display that is being used, using the local server.  
+ * After logging in, access the Remote files of the Raspberry Pi, and then follow the path ```/etc/X11/xinit```.
+ * In the command prompt terminal of the Raspberry Pi, type in ```sudo nano /etc/X11/xinit/xinitrc```.
+ * Now open the Octoprint server in the browser, then go to plugin manager delete the previous **TouchUI plugin** 
+ * NOw open the Github and search for the touchUI you wanted to get installed and then go to ```releases >  sourcecode.ZIP file ``` and copy the path of zip file
+ * Now open the plugin manger and click ** getmore ** paste the url in the paste url row . and it installs the TouchUI  .
+ * NOw it will restart the system and the TouchUI gets installed
+ * The list of files that are present will be displayed in the process. Replace the file named with the prefix `Octoprint_...` with name of the file that is to be replaced onto. 
+ * After the above changes, in the command prompt terminal, type in ```sudo reboot``` to reflect the changes in the Raspberry Pi display.
+
+# How to make image file from the boot files present 
+The following are the steps to make a image file from the files in a folder/sd card/drive etc.,
+* Install ```win32diskimager``` and open when it's done.
+* Then in the window locate the drive/folder/sd card you want to make a image file from
+* Then in the location path dialog box put the location of the desired location where the image file you to get written
+* Then press the write button on the down of the window ,then it will start writing the image 
+* After it gets written it will be saved at the desired location,located at the beginning.
+
+# How to Shrink an image of Raspberry Pi using PiShrink
+The following are the steps to shrink any image of `large size` into a `very small size` using the `PiShrink` feature:
+* Download the `Ubuntu` OS from the browser or the `App Store` such as the `Microsoft Store`. 
+* Open the `Command Prompt`. Type in: ```wsl --install```.
+* In the next step, type ```ubuntu```. This is install all the files and installation packages in the local linux system server.
+* In the next step, type in ```cd /```.
+* Next step, type in ```ls```. This will get the list of all the files present in the Ubuntu OS directory.
+* After the above steps, type in ```explorer.exe```. This will access the `Windows files` using the `Ubuntu OS`.
+* Now, in order to install the PiShrink feature into the Ubuntu OS, enter the following commands in the `command prompt`
+```
+wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+chmod +x pishrink.sh
+sudo mv pishrink.sh /usr/local/bin
+```
+* After the above steps, type in ```cd /```.
+* Then type ```ls```.
+* Then type in ```cd mnt```.
+* We have successfully installed the PiShrink feature into the OS. Now in the following steps below, we need to determine the location of the image file that is to be shrinked.
+* Type in ```/mnt# cd (location path)```. Remember that, while mentioning the path of the file, the name of the `drive` should be in small letter. Eg., `c`. Remove the `colons(:)` from the path and use `/` instead of `\`.
+* After the above step, type ```mnt/c/(location path) #ls```
+* Then type in the following commands below:
+```
+wget https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+chmod +x pishrink.sh
+sudo mv pishrink.sh /usr/local/bin
+```
+* After the above process, type in ```sudo pishrink.sh img```.
+* Finally, the large image file is replaced with the shrinked image, roughly the size of `3GB` from any large size as big as `60GB`.
