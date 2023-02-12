@@ -216,7 +216,7 @@ Enable the service to be run at boot by running as root:
 
 Reference: https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337
 
-do a ```sudo chmod +x /home/pi/scripts/webcamDaemon``` of ths script from the link above
+Follow above link for enabling and autostarting webcam
 
 also enable the camera interface on raspi-config
 
@@ -285,6 +285,17 @@ install qrcode:
 install websocket:
 ```sudo pip3 install websocket-client```
 
+#### OctoPrint-FirmwareUpdater
+To flash an ATmega-based board the tool `avrdude` needs to be installed on the OctoPrint host.
+https://github.com/OctoPrint/OctoPrint-FirmwareUpdater
+
+#### Install all other reqired plugins
+
+Install from octoprint plugin manager
+
+https://github.com/FracktalWorks/OctoPrint-Julia2018FilamentSensor
+https://github.com/FracktalWorks/Julia2018PrintRestore
+
 #### Configure Startx (Xwindow manager which helps to show GUI on Raspbian os lite)
 
 ```sudo nano /etc/rc.local```
@@ -328,6 +339,10 @@ in ```sudo raspi-config```
 - Enable screen blanking
 
 
+```
+sudo apt-get update
+sudo apt-get install avrdude
+```
 
 
 #### Install USB Automount
@@ -471,3 +486,67 @@ The reference count of the object being passed is maintained automatically. Ther
 
 # To compile .ui to .py:
  pyuic5 .\mainGUI.ui -o .\mainGUI.py
+ 
+ 
+ -------------------------------------------------------------------------------------
+ ### BabyStepping/Print Restore functionality
+ 
+ #### To change offset live, and save it for the next time:
+ 
+ * on the control screen of the touch screen, you can move the nozzle up or down
+ * when this is done, since ```BABYSTEP_ZPROBE_OFFSET``` is defined in Marlin 2.0, the babystep value will also change Z Probe Offset
+ * Doing an M500 will save this setting in EEPROM, do this by going into change height in callibration screen and saving
+ * This offset is only applied when printer levels, and not on Z home
+ 
+ #### How to not affect print restore:
+ 
+ * if during a print Babystepping is added, print restore plugin will also resore babystep value
+ * since no probing happens, and previous bed leveling mesh is applied, Z probe offset isnt applied
+ * additional baby step values is applied by the print restore plugin.
+ * you can still save the z probe offset after the print completion by going into calibration
+ 
+ --------------------------------------------------------------------------------------
+
+# Debug TouchUI using SSH and X11 Forwarding
+allows you to run the touchui on your local machine and debug it using a remote ssh connection to raspberry pi. You can calso see the output console, on which errors can be displayed.
+
+#### Follow the followsing instructions to setup X11 forwarding on your local machine:
+https://techsphinx.com/raspberry-pi/enable-x11-forwarding-on-raspberry-pi/
+- leaving the X display empty will forward to your local machine, if it doesn't work, try out the other suggestion listed in references
+
+Programs run under root will not forward to your local machine. 
+, to fix this, follow instuction on the following page:
+https://danct12.github.io/Fix-X11-Forwarding-sudo/
+
+#### Tips:
+* use BITVISE SSH client to connect to the raspberry pi for using FTP, but putty+xming for X11 forwarding. Bitvise SSH client does not support X11 forwarding very well. 
+
+
+In case you  run into issues, you can also try the following:
+* Configure X11 Forwarding in ssh: Make sure that X11 forwarding is enabled in the ssh configuration. You can do this by checking the /etc/ssh/ssh_config file and making sure that the line ForwardX11 yes is present and uncommented. If you're using a local ssh client, you can also enable X11 forwarding by using the -X or -Y option when connecting to the remote server. For example: ssh -X <user>@<host>.
+
+* Set the DISPLAY environment variable: When you connect to the remote server using ssh with X11 forwarding enabled, the DISPLAY environment variable should be set to localhost:0. You can set the DISPLAY environment variable in the terminal before running a graphical application on the remote server. For example: export DISPLAY=localhost:0.
+
+* Run graphical applications: After you've connected to the remote server and set the DISPLAY environment variable, you can run graphical applications and display their windows on your local machine using Xming.
+
+* The DISPLAY environment variable specifies the display for an X Window System client to connect to. You can set the DISPLAY environment variable in the terminal before running a graphical application on the remote server.
+
+Here's an example of how to set the DISPLAY environment variable:
+
+```bash
+export DISPLAY=<host>:<display>.<screen>
+```
+Where ```<host>``` is the hostname or IP address of the machine that is running the X11 server, ```<display>``` is the number of the X display to connect to, and ```<screen>``` is the number of the screen within the display.
+
+When using X11 forwarding with ssh, the DISPLAY variable should be set to localhost:0. Here's an example of setting the DISPLAY variable for X11 forwarding:
+
+```bash
+export DISPLAY=localhost:0
+```
+Once you've set the DISPLAY environment variable, you can run graphical applications and display their windows on the machine running the X11 server.
+
+References:
+https://www.thegeekdiary.com/how-to-set-x11-forwarding-export-remote-display-for-users-who-switch-accounts-using-sudo/
+https://danct12.github.io/Fix-X11-Forwarding-sudo/
+https://forums.raspberrypi.com/viewtopic.php?t=248325
+https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html
