@@ -506,52 +506,6 @@ The reference count of the object being passed is maintained automatically. Ther
  * you can still save the z probe offset after the print completion by going into calibration
  
  --------------------------------------------------------------------------------------
-
-# Debug TouchUI using SSH and X11 Forwarding
-allows you to run the touchui on your local machine and debug it using a remote ssh connection to raspberry pi. You can calso see the output console, on which errors can be displayed.
-
-#### Follow the followsing instructions to setup X11 forwarding on your local machine:
-https://techsphinx.com/raspberry-pi/enable-x11-forwarding-on-raspberry-pi/
-- leaving the X display empty will forward to your local machine, if it doesn't work, try out the other suggestion listed in references
-
-Programs run under root will not forward to your local machine. 
-, to fix this, follow instuction on the following page:
-https://danct12.github.io/Fix-X11-Forwarding-sudo/
-
-#### Tips:
-* use BITVISE SSH client to connect to the raspberry pi for using FTP, but putty+xming for X11 forwarding. Bitvise SSH client does not support X11 forwarding very well. 
-
-
-In case you  run into issues, you can also try the following:
-* Configure X11 Forwarding in ssh: Make sure that X11 forwarding is enabled in the ssh configuration. You can do this by checking the /etc/ssh/ssh_config file and making sure that the line ForwardX11 yes is present and uncommented. If you're using a local ssh client, you can also enable X11 forwarding by using the -X or -Y option when connecting to the remote server. For example: ssh -X <user>@<host>.
-
-* Set the DISPLAY environment variable: When you connect to the remote server using ssh with X11 forwarding enabled, the DISPLAY environment variable should be set to localhost:0. You can set the DISPLAY environment variable in the terminal before running a graphical application on the remote server. For example: export DISPLAY=localhost:0.
-
-* Run graphical applications: After you've connected to the remote server and set the DISPLAY environment variable, you can run graphical applications and display their windows on your local machine using Xming.
-
-* The DISPLAY environment variable specifies the display for an X Window System client to connect to. You can set the DISPLAY environment variable in the terminal before running a graphical application on the remote server.
-
-Here's an example of how to set the DISPLAY environment variable:
-
-```bash
-export DISPLAY=<host>:<display>.<screen>
-```
-Where ```<host>``` is the hostname or IP address of the machine that is running the X11 server, ```<display>``` is the number of the X display to connect to, and ```<screen>``` is the number of the screen within the display.
-
-When using X11 forwarding with ssh, the DISPLAY variable should be set to localhost:0. Here's an example of setting the DISPLAY variable for X11 forwarding:
-
-```bash
-export DISPLAY=localhost:0
-```
-Once you've set the DISPLAY environment variable, you can run graphical applications and display their windows on the machine running the X11 server.
-
-References:
-https://www.thegeekdiary.com/how-to-set-x11-forwarding-export-remote-display-for-users-who-switch-accounts-using-sudo/
-https://danct12.github.io/Fix-X11-Forwarding-sudo/
-https://forums.raspberrypi.com/viewtopic.php?t=248325
-https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html
-
- 
 # To change the TouchUI of the Raspberry Pi display
  The following are the steps to enable the `TouchUI` in the `Raspberry Pi displays`:
  * Connect the `Raspberry Pi 4` and the `Display` and connecting it to the power supply using its respective USB cables.
@@ -601,3 +555,52 @@ sudo mv pishrink.sh /usr/local/bin
 ```
 * After the above process, type in ```sudo pishrink.sh img```.
 * Finally, the large image file is replaced with the shrinked image, roughly the size of `3GB` from any large size as big as `60GB`.
+
+-------------------------------------------------------------------------------------
+
+# Debug TouchUI using SSH and X11 Forwarding
+allows you to run the touchui on your local machine and debug it using a remote ssh connection to raspberry pi. You can calso see the output console, on which errors can be displayed.
+
+#### Follow the followsing instructions to setup X11 forwarding on your local machine:
+https://techsphinx.com/raspberry-pi/enable-x11-forwarding-on-raspberry-pi/
+- leaving the X display empty will forward to your local machine, if it doesn't work, try out the other suggestion listed in references
+
+Programs run under root will not forward to your local machine. 
+, to fix this, follow instuction on the following page:
+https://danct12.github.io/Fix-X11-Forwarding-sudo/
+
+#### Tips:
+* use BITVISE SSH client to connect to the raspberry pi for using FTP, but putty+xming for X11 forwarding. Bitvise SSH client does not support X11 forwarding very well. 
+
+
+In case you  run into issues, you can also try the following:
+* Configure X11 Forwarding in ssh: Make sure that X11 forwarding is enabled in the ssh configuration. You can do this by checking the /etc/ssh/ssh_config file and making sure that the line ForwardX11 yes is present and uncommented. If you're using a local ssh client, you can also enable X11 forwarding by using the -X or -Y option when connecting to the remote server. For example: ssh -X <user>@<host>.
+
+* Set the DISPLAY environment variable: When you connect to the remote server using ssh with X11 forwarding enabled, the DISPLAY environment variable should be set to localhost:0. You can set the DISPLAY environment variable in the terminal before running a graphical application on the remote server. For example: export DISPLAY=localhost:0.
+
+* Run graphical applications: After you've connected to the remote server and set the DISPLAY environment variable, you can run graphical applications and display their windows on your local machine using Xming.
+
+* The DISPLAY environment variable specifies the display for an X Window System client to connect to. You can set the DISPLAY environment variable in the terminal before running a graphical application on the remote server.
+
+Here's an example of how to set the DISPLAY environment variable:
+
+```bash
+export DISPLAY=<host>:<display>.<screen>
+```
+Where ```<host>``` is the hostname or IP address of the machine that is running the X11 server, ```<display>``` is the number of the X display to connect to, and ```<screen>``` is the number of the screen within the display.
+
+When using X11 forwarding with ssh, the DISPLAY variable should be set to localhost:0. Here's an example of setting the DISPLAY variable for X11 forwarding:
+
+```bash
+export DISPLAY=localhost:0
+```
+Once you've set the DISPLAY environment variable, you can run graphical applications and display their windows on the machine running the X11 server.
+
+References:
+https://www.thegeekdiary.com/how-to-set-x11-forwarding-export-remote-display-for-users-who-switch-accounts-using-sudo/
+https://danct12.github.io/Fix-X11-Forwarding-sudo/
+https://forums.raspberrypi.com/viewtopic.php?t=248325
+https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html
+
+ 
+
