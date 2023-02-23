@@ -426,9 +426,11 @@ https://www.youtube.com/watch?v=Vde5SH8e1OQ
 
 Text based tutuorial : https://www.techwithtim.net/tutorials/pyqt5-tutorial/basic-gui-application/
 Setting up with Pycharm: https://pythonpyqt.com/how-to-install-pyqt5-in-pycharm/
-You may need to install QT designer seperately
-
-
+You may need to install QT designer seperately: https://build-system.fman.io/qt-designer-download
+You may also need to install Pyuic5: pip3 install PyQt5
+And then you can install external tools:
+![PyUIC5.png](Images%2FPyUIC5.png)
+![Qtdesigner settings.png](Images%2FQtdesigner%20settings.png)
 ## Differences between PyQt5 and PyQt4:
 https://docs.huihoo.com/pyqt/PyQt5/pyqt4_differences.html#:~:text=PyQt5%20exposes%20only%20the%20signal,QObject%20(i.e.%20in%20mixins).
 
