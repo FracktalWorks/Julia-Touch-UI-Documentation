@@ -568,6 +568,8 @@ https://techsphinx.com/raspberry-pi/enable-x11-forwarding-on-raspberry-pi/
 Programs run under root will not forward to your local machine. 
 , to fix this, follow instuction on the following page:
 https://danct12.github.io/Fix-X11-Forwarding-sudo/
+This needs to be done for every session.
+
 
 #### Tips:
 * use BITVISE SSH client to connect to the raspberry pi for using FTP, but putty+xming for X11 forwarding. Bitvise SSH client does not support X11 forwarding very well. 
