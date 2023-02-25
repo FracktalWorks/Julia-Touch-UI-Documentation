@@ -572,7 +572,9 @@ Programs run under root will not forward to your local machine.
 , to fix this, follow instuction on the following page:
 https://danct12.github.io/Fix-X11-Forwarding-sudo/
 This needs to be done for every session. 
-You can run to do this automatically
+
+You can run to do this automatically with:
+
 ```
 sudo xauth add $(xauth list $DISPLAY)
 ```
