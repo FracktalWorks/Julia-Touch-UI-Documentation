@@ -573,9 +573,9 @@ Programs run under root will not forward to your local machine.
 https://danct12.github.io/Fix-X11-Forwarding-sudo/
 This needs to be done for every session. 
 You can run to do this automatically
-'''
+```
 sudo xauth add $(xauth list $DISPLAY)
-'''
+```
 
 
 #### Tips:
