@@ -571,7 +571,11 @@ https://techsphinx.com/raspberry-pi/enable-x11-forwarding-on-raspberry-pi/
 Programs run under root will not forward to your local machine. 
 , to fix this, follow instuction on the following page:
 https://danct12.github.io/Fix-X11-Forwarding-sudo/
-This needs to be done for every session.
+This needs to be done for every session. 
+You can run to do this automatically
+'''
+sudo xauth add $(xauth list $DISPLAY)
+'''
 
 
 #### Tips:
