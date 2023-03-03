@@ -580,6 +580,14 @@ sudo xauth add $(xauth list $DISPLAY)
 ```
 
 
+to run the Touch UI:
+
+```
+cd /etc/X11/xinit/xinitrc
+sudo ./xinitrc
+```
+
+
 #### Tips:
 * use BITVISE SSH client to connect to the raspberry pi for using FTP, but putty+xming for X11 forwarding. Bitvise SSH client does not support X11 forwarding very well. 
 
