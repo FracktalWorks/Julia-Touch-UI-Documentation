@@ -424,9 +424,9 @@ https://di-marco.net/blog/it/2020-04-18-tips-disabling_bluetooth_on_raspberry_pi
 ## Initial setup to run on Windows:
 https://www.youtube.com/watch?v=Vde5SH8e1OQ
 
-Text based tutuorial : https://www.techwithtim.net/tutorials/pyqt5-tutorial/basic-gui-application/
-
 Setting up with Pycharm: https://pythonpyqt.com/how-to-install-pyqt5-in-pycharm/
+
+Text based tutuorial : https://www.techwithtim.net/tutorials/pyqt5-tutorial/basic-gui-application/
 
 You may need to install QT designer seperately: https://build-system.fman.io/qt-designer-download
 
