@@ -588,7 +588,7 @@ sudo xauth add $(xauth list $DISPLAY)
 to run the Touch UI:
 
 ```
-cd /etc/X11/xinit/xinitrc
+cd /etc/X11/xinit
 sudo ./xinitrc
 ```
 
